@@ -8,7 +8,7 @@
 
 **开发准则**：新增每日练习代码前，请先阅读 [`开发准则.md`](开发准则.md)。
 
-**当前进度**：Day1 ~ Day2 已实现（图像 IO 与窗口基础、像素操作与 ROI 区域）。
+**当前进度**：Day1 ~ Day5 已实现（图像 IO、像素与 ROI、色彩空间转换、几何变换、平移与旋转）。
 
 ## 环境准备
 
@@ -116,7 +116,19 @@ stady/
 │   ├── output/                  # 脚本输出目录
 │   ├── day2_roi_pixel.py        # ROI 裁剪与像素修改（OpenCV 算子）
 │   └── day2_numpy_in_cv.py      # NumPy 在 OpenCV 中的用法
-├── Day3/ ~ Day28/               # 后续每日练习（待实现）
+├── Day3/
+│   ├── images/                  # 放置测试图片
+│   ├── output/                  # 脚本输出目录
+│   └── day3_color_space.py      # 色彩空间转换与通道分离/合并
+├── Day4/
+│   ├── images/                  # 放置测试图片
+│   ├── output/                  # 脚本输出目录
+│   └── day4_geometric_transform.py  # 图像缩放与翻转
+├── Day5/
+│   ├── images/                  # 放置测试图片
+│   ├── output/                  # 脚本输出目录
+│   └── day5_translate_rotate.py # 平移与旋转矫正
+├── Day6/ ~ Day28/               # 后续每日练习（待实现）
 ```
 
 ## Day1 快速开始
@@ -168,3 +180,58 @@ python Day2/day2_numpy_in_cv.py
 
 - `day2_numpy_roi_copy.jpg` — 独立拷贝后修改的 ROI
 - `day2_numpy_channel.jpg` — 用 NumPy 切片修改 ROI 后的完整图像
+
+## Day3 快速开始
+
+### 1. 准备测试图片
+
+将测试图片（如 `cat1.jpg`）放入 `Day3/images/` 目录。
+
+### 2. 运行色彩空间转换脚本
+
+```bash
+python Day3/day3_color_space.py
+```
+
+脚本完成 BGR→灰度、BGR→HSV 转换，拆分 B/G/R 三通道并合并还原，输出保存至 `Day3/output/`：
+
+- `day3_gray.jpg` — 灰度图
+- `day3_hsv.jpg` — HSV 图
+- `day3_channel_b.jpg` / `day3_channel_g.jpg` / `day3_channel_r.jpg` — 三通道单图
+- `day3_merged.jpg` — 通道合并还原图
+
+## Day4 快速开始
+
+### 1. 准备测试图片
+
+将测试图片（如 `cat1.jpg`）放入 `Day4/images/` 目录。
+
+### 2. 运行基础几何变换脚本
+
+```bash
+python Day4/day4_geometric_transform.py
+```
+
+脚本对单张图片进行缩放与左右/上下镜像，输出保存至 `Day4/output/`：
+
+- `day4_resized.jpg` — 缩放结果（默认缩小为 50%）
+- `day4_flip_horizontal.jpg` — 左右镜像
+- `day4_flip_vertical.jpg` — 上下镜像
+
+## Day5 快速开始
+
+### 1. 准备测试图片
+
+将测试图片（如 `cat1.jpg`）放入 `Day5/images/` 目录。
+
+### 2. 运行平移与旋转脚本
+
+```bash
+python Day5/day5_translate_rotate.py
+```
+
+脚本演示图像平移、模拟倾斜与旋转矫正，输出保存至 `Day5/output/`：
+
+- `day5_translated.jpg` — 平移结果
+- `day5_tilted.jpg` — 模拟倾斜（旋转 20°）
+- `day5_corrected.jpg` — 旋转矫正（反向 -20°）
