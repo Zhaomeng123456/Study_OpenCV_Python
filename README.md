@@ -8,7 +8,7 @@
 
 **开发准则**：新增每日练习代码前，请先阅读 [`开发准则.md`](开发准则.md)。
 
-**当前进度**：Day1 ~ Day5 已实现（图像 IO、像素与 ROI、色彩空间转换、几何变换、平移与旋转）。
+**当前进度**：Day1 ~ Day7 已实现（第一周基础与几何变换全部完成）。
 
 ## 环境准备
 
@@ -128,7 +128,15 @@ stady/
 │   ├── images/                  # 放置测试图片
 │   ├── output/                  # 脚本输出目录
 │   └── day5_translate_rotate.py # 平移与旋转矫正
-├── Day6/ ~ Day28/               # 后续每日练习（待实现）
+├── Day6/
+│   ├── images/                  # 放置测试图片（含生成演示图 card.jpg）
+│   ├── output/                  # 脚本输出目录
+│   └── day6_affine_perspective.py  # 仿射与透视变换
+├── Day7/
+│   ├── images/                  # 放置测试图片
+│   ├── output/                  # 脚本输出目录
+│   └── day7_image_tool.py       # 第一周综合：简易图片工具
+├── Day8/ ~ Day28/               # 后续每日练习（待实现）
 ```
 
 ## Day1 快速开始
@@ -235,3 +243,36 @@ python Day5/day5_translate_rotate.py
 - `day5_translated.jpg` — 平移结果
 - `day5_tilted.jpg` — 模拟倾斜（旋转 20°）
 - `day5_corrected.jpg` — 旋转矫正（反向 -20°）
+
+## Day6 快速开始
+
+### 1. 准备测试图片
+
+Day6 使用自动生成的演示图片 `card.jpg`（含网格与角点），无需手动放入。也可放入 `cat1.jpg` 作为备选。
+
+### 2. 运行仿射与透视变换脚本
+
+```bash
+python Day6/day6_affine_perspective.py
+```
+
+脚本演示仿射（3 点矫正）与透视（4 点映射），输出保存至 `Day6/output/`：
+
+- `day6_affine.jpg` — 仿射矫正结果（保留平行关系）
+- `day6_perspective.jpg` — 透视变换结果（改变平行关系）
+
+## Day7 快速开始
+
+### 1. 准备测试图片
+
+将测试图片（如 `cat1.jpg`）放入 `Day7/images/` 目录。
+
+### 2. 运行第一周综合图片工具
+
+```bash
+python Day7/day7_image_tool.py
+```
+
+脚本串联第一周操作：ROI 裁剪 → 缩放 → 翻转 → 保存，输出：
+
+- `day7_result.jpg` — 综合处理结果
